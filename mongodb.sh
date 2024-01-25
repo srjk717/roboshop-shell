@@ -2,6 +2,7 @@
 
 DATE=$(date +%F)
 LOGSDIR=/tmp
+# /home/centos/shellscript-logs/script-name-date.log
 SCRIPT_NAME=$0
 LOGFILE=$LOGSDIR/$0-$DATE.log
 USERID=$(id -u)
@@ -11,8 +12,8 @@ N="\e[0m"
 Y="\e[33m"
 
 if [ $USERID -ne 0 ];
-then 
-    echo -e "$R ERROR :: PLEASE RUN the script WITH ROOT ACCESS $N"
+then
+    echo -e "$R ERROR:: Please run this script with root access $N"
     exit 1
 fi
 
@@ -26,13 +27,14 @@ VALIDATE(){
     fi
 }
 
+
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
-VALIDATE $? "Copied MONGODB Repo into yum.repos.d"
+VALIDATE $? "Copied MongoDB repo into yum.repos.d"
 
 yum install mongodb-org -y &>> $LOGFILE
 
-VALIDATE $? "Installation of mongo-org"
+VALIDATE $? "Installation of MongoDB"
 
 systemctl enable mongod &>> $LOGFILE
 
@@ -44,8 +46,8 @@ VALIDATE $? "Starting MongoDB"
 
 sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>> $LOGFILE
 
-VALIDATE $? "Edited MongoDB Conf"
+VALIDATE $? "Edited MongoDB conf"
 
 systemctl restart mongod &>> $LOGFILE
 
-VALIDATE $? "Restarting MongoDB"
+VALIDATE $? "Restarting MonogoDB"
