@@ -15,8 +15,6 @@ if [ $USERID -ne 0 ];
 then 
     echo -e "$R ERROR :: PLEASE RUN the script WITH ROOT ACCESS $N"
     exit 1
-# else    
-#     echo "INFO:: YOU ARE ROOT USER"
 fi
 
 VALIDATE(){
@@ -25,13 +23,14 @@ VALIDATE(){
         echo -e "$2 ... $R FAILURE $N"
         exit 1
     else    
-        echo -e "$2 .. $G SUCCESS $N"
+        echo -e "$2 ... $G SUCCESS $N"
     fi
 }
 
+
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
-VALIDATE $? "Copied MONGODB Repo into yum.repo.d"
+VALIDATE $? "Copied MONGODB Repo into yum.repos.d"
 
 yum install mongodb-org -y &>> $LOGFILE
 
