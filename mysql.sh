@@ -2,6 +2,7 @@
 
 DATE=$(date +%F)
 LOGSDIR=/tmp
+# /home/centos/shellscript-logs/script-name-date.log
 SCRIPT_NAME=$0
 LOGFILE=$LOGSDIR/$0-$DATE.log
 USERID=$(id -u)
@@ -32,7 +33,7 @@ VALIDATE $? "Disabling the default version"
 
 cp /home/centos/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOGFILE
 
-VALIDATE $? "Copying MySQL repo"
+VALIDATE $? "Copying MySQL repo" 
 
 yum install mysql-community-server -y &>> $LOGFILE
 
