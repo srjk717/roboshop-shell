@@ -4,7 +4,7 @@ NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping"
 INSTANCE_TYPE=""
 IMAGE_ID=ami-0f3c7d07486cad139
 SECURITY_GROUP_ID=sg-0612ba1e6231c0958
-DOMAIN_NAME=rahuldevops.cloud
+DOMAIN_NAME=rahuldevops.online
 
 #IF MY SQL OR MONGODB INSTANCE_TYPE SHOULD BE T3.MICRO FOR ALL OTHERS IT IS T2.MICRO
 

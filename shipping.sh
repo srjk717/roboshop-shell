@@ -79,7 +79,7 @@ yum install mysql -y  &>>$LOGFILE
 
 VALIDATE $? "Installing mysql"
 
-mysql -h mysql.rahuldevops.cloud -uroot -pRoboShop@1 < /app/schema/shipping.sql &>>$LOGFILE
+mysql -h mysql.rahuldevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql &>>$LOGFILE
 
 VALIDATE $? "Loaded countries and cities info"
 

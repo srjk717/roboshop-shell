@@ -86,7 +86,7 @@ yum install mongodb-org-shell -y &>>$LOGFILE
 
 VALIDATE $? "Installing Mongo Client"
 
-mongo --host mongodb.rahuldevops.cloud </app/schema/user.js &>>$LOGFILE
+mongo --host mongodb.rahuldevops.online </app/schema/user.js &>>$LOGFILE
 
 VALIDATE $? "Loading user data into mongodb"
 
